@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "./index.css" />
+    <title> react </title>
+</head>
+<body>
+    <div id = "header"> <!-- there is a header -->
+        <h1>hello priya here</h1>
+    </div>
+    <h1>hello top of root</h1>
+   <div id = "root"> <!-- and root also, we gave header as root in App6.js so react works inside only hearder div
+everything in header div will be replaced by things which we pass in root.render-->
+ 
+   <h1>priya is here</h1>
+   </div>
+   <h1>hello below of root</h1>
+   <script
+     crossorigin src="https://unpkg.com/react@18/umd/react.development.js">
+     </script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src = "./App6.js"> // if u keep src =./app.js after cdn lines it doesnt work bcz code in app.js is using react
+    
+</script>
+</body>
+</html>
+<!--output
+im a h1 tag
+im a h2 tag
+im a h1 tag
+im a h2 tag
+hello top of root
+priya is here
+hello below of root-->
