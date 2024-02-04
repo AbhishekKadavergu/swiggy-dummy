@@ -1,0 +1,2 @@
+export const LOGO = "https://static.vecteezy.com/system/resources/previews/010/411/845/non_2x/restaurant-logo-design-template-free-vector.jpg"
+export const RESTO_IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
