@@ -18,9 +18,9 @@
     list-style-type: none;
 }
 
-.nav-items > ul > li{
+.nav-item{
     margin: 5px;
-    padding: 5px;
+    text-decoration: none;
 }
 
 .search{
@@ -66,4 +66,10 @@
     height: 400px;
     background-color: rgb(223, 219, 219);
     margin: 5px;
+}
+
+.login-btn{
+    padding: 5px;
+    cursor: pointer;
+    font-size: 18px;
 }
