@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Aboutus } from "./components/Aboutus";
+import { ErrorPage } from "./components/ErrorPage";
+import { RestaurantMenu } from "./components/RestaurantMenu";
 
 const AppLayout = () => {
   return (
@@ -19,10 +21,11 @@ const AppLayout = () => {
   );
 };
 
-const router = createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
+    errorElement: <ErrorPage/>,
     children: [,
       {
         path: '/',
@@ -35,7 +38,12 @@ const router = createBrowserRouter([
       {
         path: '/aboutus',
         element: <Aboutus/>
-      }]
+      },
+      {
+        path: '/restaurant/:restId',
+        element: <RestaurantMenu/>
+      },
+    ]
   }
 ])
 
@@ -43,6 +51,6 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={appRouter} />
   </React.StrictMode>
 );;
