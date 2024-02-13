@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react"
 import { MENU_URL } from "../utils/constants"
 import { Shimmer } from "./Shimmer"
+import { useParams } from "react-router-dom"
 
 export const RestaurantMenu = ()=>{
 
     const [restMenuList, setRestMenuList] = useState(null)
+    const {restId} = useParams()
     useEffect(()=>{
         fetchRestaurantMenu();
         
     }, [])
     
     const fetchRestaurantMenu = async ()=>{
-        const restMenu = await fetch(MENU_URL)
+        const restMenu = await fetch(MENU_URL+restId)
         const jsonData = await restMenu.json()
         setRestMenuList(jsonData)
         console.log(jsonData)
@@ -22,7 +24,7 @@ export const RestaurantMenu = ()=>{
     }
 
     const restoName = restMenuList?.data?.cards[0]?.card?.card?.info?.name
-    const menuList = restMenuList.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards
+    const menuList = restMenuList?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
 
 
     return (
@@ -34,7 +36,7 @@ export const RestaurantMenu = ()=>{
                 Menu
             </h2>
             <ul>
-                {menuList.map(menu=> <li key={menu.card.info.id}>{menu.card.info.name}</li>)}
+                {menuList?.map(menu=> <li key={menu?.card?.info?.id}>{menu?.card?.info?.name}</li>)}
             </ul>
 
         </div>
